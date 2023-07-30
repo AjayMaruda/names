@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajay Maruda</title>
+</head>
+<style>
+body {
+  background-color: rgb(244, 219, 188);
+  margin: 0; /* Reset default margin */
+}
+
+/* Common style for input elements */
+#inputData1,
+#inputData2 {
+  margin: 10px auto;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles for specific elements */
+#inputData1 input,
+#inputData2 input {
+  border: none;
+  outline: none;
+  flex: 1;
+}
+
+#btn {
+  margin: 20px auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:  #86580a;
+  color: aliceblue;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+#btn:hover {
+  background-color: #cebcbc;
+}
+
+/* Common style for label names */
+.labelNames {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #333; /* Adjust font color */
+}
+
+/* Media query for responsiveness */
+@media screen and (max-width: 768px) {
+  .labelNames {
+    font-size: 16px; /* Adjust font size for smaller screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .labelNames {
+    font-size: 14px; /* Further adjust font size for smaller screens */
+  }
+}
+
+</style>
+<body>
+    <label for="input" class="labelNames">Enter Your First Name: 
+    </label>
+    <br>
+    <input type="text" id="inputData1">
+    <br>
+    <label for="input" class="labelNames">Enter Your Last Name:
+    </label>
+    <br>
+    <input type="text" id="inputData2">
+    <br>
+    <button id="btn">Submit</button>
+
+    <!-- Create a div to display the list -->
+    <div id="nameList"></div>
+
+
+    <h2 id="namePrint"></h2>
+
+<!-- Without array -->
+    <!-- <script>
+        function clickEvent() {
+    // Getting first name
+    let fname = document.getElementById('inputData1');
+    let firstName = fname.value;
+
+    // Getting Last name
+    let lname = document.getElementById('inputData2');
+    let lastName = lname.value;
+
+    let displayNames = document.getElementById('namePrint');
+    displayNames.textContent = 'Your name is: ' + firstName + ' ' + lastName;
+  }
+
+  let btn = document.getElementById('btn');
+  btn.addEventListener('click', clickEvent, false);
+
+
+    </script> -->
+
+
+    <!-- With Array -->
+
+    <script>
+        // Create an empty array to store names
+        let namesArray = [];
+
+        function clickEvent() {
+            // Getting first name
+            let fname = document.getElementById('inputData1');
+            let firstName = fname.value;
+
+            // Getting Last name
+            let lname = document.getElementById('inputData2');
+            let lastName = lname.value;
+
+            // Concatenate first name and last name
+            let fullName = firstName + ' ' + lastName;
+
+            // Add the full name to the array
+            namesArray.push(fullName);
+
+            // Display the names as a list
+            let nameList = document.getElementById('nameList');
+            nameList.innerHTML = '<ul>' + namesArray.map(name => `<li>${name}</li>`).join('---------------------') + '</ul>';
+
+            // Clear the input fields after adding the name
+            fname.value = '';
+            lname.value = '';
+        }
+
+        let btn = document.getElementById('btn');
+        btn.addEventListener('click', clickEvent, false);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+</body>
+</html>
